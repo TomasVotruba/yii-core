@@ -185,13 +185,12 @@ class CacheableWidgetBehavior extends Behavior
     private function getFragmentCacheConfiguration()
     {
         $cache = $this->getCacheInstance();
-        $fragmentCacheConfiguration = [
+
+        return [
             'cache' => $cache,
             'duration' => $this->cacheDuration,
             'dependency' => $this->cacheDependency,
             'enabled' => $this->cacheEnabled,
         ];
-
-        return $fragmentCacheConfiguration;
     }
 }

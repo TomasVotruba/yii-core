@@ -412,12 +412,7 @@ class FileValidator extends Validator
                 return false;
             }
         }
-
-        if (!in_array($extension, $this->extensions, true)) {
-            return false;
-        }
-
-        return true;
+        return in_array($extension, $this->extensions, true);
     }
 
     /**

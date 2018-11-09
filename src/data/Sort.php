@@ -282,7 +282,7 @@ class Sort extends BaseObject implements Initiable
                     }
                 }
             }
-            if (empty($this->_attributeOrders) && is_array($this->defaultOrder)) {
+            if ($this->_attributeOrders === []) {
                 $this->_attributeOrders = $this->defaultOrder;
             }
         }
@@ -442,7 +442,7 @@ class Sort extends BaseObject implements Initiable
         $definition = $this->attributes[$attribute];
         $directions = $this->getAttributeOrders();
         if (isset($directions[$attribute])) {
-            $direction = $directions[$attribute] === SORT_DESC ? SORT_ASC : SORT_DESC;
+            $direction = $directions[$attribute] !== SORT_DESC;
             unset($directions[$attribute]);
         } else {
             $direction = $definition['default'] ?? SORT_ASC;

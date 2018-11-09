@@ -313,11 +313,10 @@ abstract class ErrorHandler extends Component
         } else {
             $message = 'Exception';
         }
-        $message .= " '" . get_class($exception) . "' with message '{$exception->getMessage()}' \n\nin "
-            . $exception->getFile() . ':' . $exception->getLine() . "\n\n"
-            . "Stack trace:\n" . $exception->getTraceAsString();
 
-        return $message;
+        return $message . (" '" . get_class($exception) . "' with message '{$exception->getMessage()}' \n\nin "
+            . $exception->getFile() . ':' . $exception->getLine() . "\n\n"
+            . "Stack trace:\n" . $exception->getTraceAsString());
     }
 
     /**

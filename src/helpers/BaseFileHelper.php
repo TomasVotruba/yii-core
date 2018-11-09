@@ -543,12 +543,7 @@ class BaseFileHelper
         }
 
         if (!empty($options['only']) && !is_dir($path)) {
-            if (($except = self::lastExcludeMatchingFromList($options['basePath'], $path, $options['only'])) !== null) {
-                // don't check PATTERN_NEGATIVE since those entries are not prefixed with !
-                return true;
-            }
-
-            return false;
+            return ($except = self::lastExcludeMatchingFromList($options['basePath'], $path, $options['only'])) !== null;
         }
 
         return true;

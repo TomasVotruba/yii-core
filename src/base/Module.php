@@ -674,11 +674,7 @@ class Module extends Component
         if (!preg_match('%^[a-z][a-z0-9\\-_]*$%', $className)) {
             return true;
         }
-        if ($prefix !== '' && !preg_match('%^[a-z0-9_/]+$%i', $prefix)) {
-            return true;
-        }
-
-        return false;
+        return $prefix !== '' && !preg_match('%^[a-z0-9_/]+$%i', $prefix);
     }
 
     /**
